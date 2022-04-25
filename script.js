@@ -1,174 +1,186 @@
-document.write("<h2>Задание 1.</h2>");
+console.log(window.document);
 
-{
-    let name = prompt("Как вас зовут");
-    let age = prompt("Возраст");
-    let city = prompt("Город проживания");
-    let company = prompt("Место работы");
-    let phone = prompt("Телефон");
-    let email = prompt("Почта");
-    document.write("Меня зовут " + name + ". Мне " + age + " лет. Я проживаю в городе " + city + " и работаю в компании " + company + ". Мои контактные данные: телефон " + phone + ", почта " + email + "."  );
+let body = document.body;
 
+let htmlElem = document.querySelector('html');
+htmlElem.setAttribute('lang','en');
 
+let headElem = document.querySelector('head');
 
-    document.write("<h2>Задание 2.</h2>");
+let metaElem1 = document.createElement('meta');
+metaElem1.setAttribute('charset', 'UTF-8');
 
+let metaElem2 = document.createElement('meta');
+metaElem2.setAttribute('http-equiv', 'X-UA-Compatible');
+metaElem2.setAttribute('content', 'IE=edge');
 
-    let year = 2022 - age;
-    document.write(name + " родился в " + year + " году."); 
+let metaElem3 = document.createElement('meta');
+metaElem3.setAttribute('name', 'viewport');
+metaElem3.setAttribute('content', 'width=device-width, initial-scale=1.0');
+
+let titleElem = document.createElement('title');
+titleElem.innerHTML = "widget";
+
+let styleElem = document.createElement('style');
+styleElem.innerText = `
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.options{
+    display: flex;
+    flex-direction:column;
+    text-align:center;
+    margin-top:60px;
+}
+.options__header{
+    margin-bottom:60px;
+}
+.options__header h2{
+    font-size:36px;
+    font-family: 'Arvo', serif;
+    line-height: 48px;
+    margin-bottom: 20px;
+}
+.options__header span{
+    font-family: 'Open Sans', sans-serif;
+    color: #9FA3A7;
+    font-size: 14px;
+    line-height: 26px;
+}
+.options__choise{
+    overflow: hidden;
+    display: flex;
+    margin: 0 auto;
+    width: 800px;
+    border-radius: 10px;
+    height: 380px;
+}
+.options__choiseItem{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    justify-content:center
+}
+.options__choiseItem:hover{
+    background-color: #8F75BE;
 }
 
-
-document.write("<h2>Задание 3.</h2>");
-
-{
-    let string = "124322";
-    let sum = 0;
-    let sum2 = 0;
-
-    for(let i = 0; i < string.length; i++){
-        if( i <= 2){
-            sum += Number(string[i]);
-        } else{
-            sum2 += Number(string[i]);
-        }
-    }
-
-    if( sum == sum2 ){
-        document.write("да")
-    } else{
-        document.write("нет")
-    }
+.options__choiseItem .name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 2.5px;
+    color: #9FA3A7;
+    margin-bottom: 30px;
 }
-
-
-
-document.write("<h2>Задание 4.</h2>");
-
-{
-    let a = 1;
-    if (a > 0){
-        document.write("Верно");
-    }else{
-        document.write("Неверно");
-    }
+.options__choiseItem:hover .name{
+    color: #FFC80A;
 }
-
-
-document.write("<h2>Задание 5.</h2>");
-
-{
-    let a = 10;
-    let b = 2;
-    let summ = a + b;
-    let difference = a - b;
-    let multiply = a * b;
-    let divide = a / b;
-    document.write("Сумма: " + summ + "<br> Разность: " + difference + "<br> Произведение: " + multiply + "<br> Частное: " + divide + ".<br>");
-    if(summ > 1){
-        document.write("Сумма в квадрате:" + summ * summ);
-    }
+.options__choiseItem .description{
+    font-family: 'Arvo', serif;
+    font-size:36px;
+    line-height:46px;
+    width: 60%;
+    margin-bottom: 35px;
 }
-
-
-document.write("<h2>Задание 6.</h2>");
-
-{
-    let a = 10;
-    let b = 2;
-    if(( a > 2 && a < 11) || (b >= 6 && b < 14)){
-        document.write("Верно");
-    }else{
-        document.write("Неверно");
-    }
+.options__choiseItem:hover .description,
+.options__choiseItem:hover .postscript{
+    color: #FFF;
 }
-
-
-document.write("<h2>Задание 7.</h2>");
-
-{
-    n = 0;
-    if( n >= 0 && n <= 15){
-        document.write("Первая четверть часа.")
-    }else if( n > 15 && n <= 30){
-        document.write("Вторая четверть часа.")
-    }else if( n > 30 && n <= 45){
-        document.write("Третья четверть часа.")
-    }else if ( n > 45 && n <= 59){
-        document.write("Четвертая четверть часа.")
-    }
+.options__choiseItem .postscript{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    line-height: 22px;
+    width: 60%;
+    color: #9FA3A7;
+    margin-bottom: 65px;
 }
-
-
-document.write("<h2>Задание 8.</h2>");
-
-{
-    day = 31;
-    if( day > 0 && day <= 10){
-        document.write("Первая декада месяца.")
-    }else if( day > 10 && day <= 20){
-        document.write("Вторая декада месяца.")
-    }else if( day > 20 && day <= 31){
-        document.write("Третья декада месяца.")
-    }
+.options__choiseItem .btn{
+    border: 3px solid #FFC80A;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 2.5px;
+    font-weight: bold;
+    padding: 20px 25px;
+    border-radius: 30px;
+    cursor:pointer;
 }
+.options__choiseItem:hover .btn{
+    background-color: #8F75BE;
+    color: #fff;
+}`
+
+headElem.append(metaElem1, metaElem2, metaElem3, titleElem, styleElem);
 
 
-document.write("<h2>Задание 9.</h2>");
 
-{
-    let day = 51;
-    let year = day / 365;
-    if(year < 1){
-        year += year + "(меньше года)";
-    } 
-    let month = day / 31;
-    if(month < 1){
-        month += month + "(меньше месяца)";
-    } 
-    let week = day / 7;
-    if(week < 1){
-        week += week + "(меньше недели)";
-    } 
-    let hour = day * 24;
-    let minute = hour * 60;
-    let sec = minute * 60;
-    
-    document.write(day +"дн.=<br> " + year  + " г.<br>" + month + " м.<br>" + week + " н.<br>" + hour + "ч.<br>" + minute + "мин.<br>"  + sec + "сек.<br>");
-}
+let divOptions = document.createElement('div');
+divOptions.setAttribute('class','options')
+
+let divOptionsHeader = document.createElement('div')
+divOptionsHeader.setAttribute('class', 'options__header')
+
+let h2Elem = document.createElement('h2');
+h2Elem.innerHTML = "Choose Your Option";
+
+let captionElem = document.createElement('span')
+captionElem.innerHTML = "But I must explain to you how all this mistaken idea of denouncing";
+
+divOptionsHeader.append(h2Elem,captionElem)
+
+let choisesContainer = document.createElement('div');
+choisesContainer.setAttribute('class','options__choise')
+
+let choisesContainerOption1 = document.createElement('div')
+choisesContainerOption1.setAttribute('class', 'options__choiseItem')
+
+let spanName1 = document.createElement("span");
+spanName1.setAttribute('class','name')
+spanName1.innerHTML = "FREELANCER";
+
+let pDescription1 = document.createElement("p");
+pDescription1.setAttribute('class', 'description');
+pDescription1.innerHTML = "Initially designed to";
+
+let pPostcript1 = document.createElement("p");
+pPostcript1.setAttribute('class', 'postscript');
+pPostcript1.innerHTML = "But I must explain to you how all this mistaken idea of denouncing";
+
+let button1 = document.createElement('button');
+button1.setAttribute('class', 'btn');
+button1.innerHTML = "START HERE";
 
 
-document.write("<h2>Задание 10.</h2>");
 
-{
-    let day = 364;
-    let month = Math.ceil(day / 31);
-    document.write( day + " день, " + month + " месяц ")
+let choisesContainerOption2 = document.createElement('div')
+choisesContainerOption2.setAttribute('class', 'options__choiseItem')
 
-    switch(month){
-        case 12:
-        case 1:
-        case 2:
-        document.write("Зима");
-        break;
+let spanName2 = document.createElement("span")
+spanName2.setAttribute('class','name')
+spanName2.innerHTML = "STUDIO";
 
-        case 3:
-        case 4:
-        case 5:
-        document.write("Весна");
-        break;
+let pDescription2 = document.createElement("p")
+pDescription2.setAttribute('class', 'description');
+pDescription2.innerHTML = "Initially designed to";
 
-        case 6:
-        case 7:
-        case 8:
-        document.write("Лето");
-        break;
+let pPostcript2 = document.createElement("p");
+pPostcript2.setAttribute('class', 'postscript');
+pPostcript2.innerHTML = "But I must explain to you how all this mistaken idea of denouncing";
 
-        case 9:
-        case 10:
-        case 11:
-        document.write("Осень");
-        break;
-    }
-}
+let button2 = document.createElement('button');
+button2.setAttribute('class', 'btn');
+button2.innerHTML = "START HERE";
 
+choisesContainerOption1.append(spanName1, pDescription1, pPostcript1, button1)
+choisesContainerOption2.append(spanName2, pDescription2, pPostcript2, button2)
+choisesContainer.append(choisesContainerOption1, choisesContainerOption2);
+divOptions.append(divOptionsHeader, choisesContainer);
+body.append(divOptions)
