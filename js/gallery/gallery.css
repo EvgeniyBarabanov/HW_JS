@@ -1,0 +1,30 @@
+.gallery__content{
+    position: relative;
+    margin-left: auto;
+    width: 70%;
+}
+.gallery__content img{
+    width: 100%;
+}
+
+.elem__close{
+    position: absolute;
+    width: 35px;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    border: 0;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transform: rotate(45deg);
+}
+
+.elem__caption{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #fff;
+    text-shadow: 0 0 5px black;
+}

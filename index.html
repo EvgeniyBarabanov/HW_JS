@@ -5,9 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="/js/gallery/gallery.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+
+    <div class="gallery">
+        <div class="align">
+            <h2>Tabbed Image Gallery</h2>
+            <p>Click on the images below:</p>
+        </div>
+        <div class="gallery__container">    
+            <ul class="gallery__thumbs">
+                <li><a data-caption="NATURE" data-gallery="image" href="/images/img_nature.jpg"><img src="/images/img_nature.jpg" alt="#"></a></li>
+                <li><a data-caption="SNOW" data-gallery="image" href="/images/img_snow.jpg"><img src="/images/img_snow.jpg" alt="#"></a></li>
+                <li><a data-caption="MOUNTAINS" data-gallery="image" href="/images/img_mountains.jpg"><img src="/images/img_mountains.jpg" alt="#"></a></li>
+                <li><a data-caption="LIGHTS" data-gallery="image" href="/images/img_lights.jpg"><img src="/images/img_lights.jpg" alt="#"></a></li>
+            </ul>
+        </div>
+    </div>
+
     
+    <script src="/js/gallery/gallery.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
