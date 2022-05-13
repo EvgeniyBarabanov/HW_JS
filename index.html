@@ -5,9 +5,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="/js/filter/filter.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     
+    <div class="filter">
+        
+        <div class="filter__button">
+            <button data-filter="all" class="btn">Show all</button>
+            <button data-filter="nature" class="btn">Nature</button>
+            <button data-filter="cars" class="btn">Cars</button>
+            <button data-filter="people" class="btn">People</button>
+        </div>
+
+        <div class="filter__content">
+            <div data-content="nature" class="filter__content_block">
+                <img src="/images/mountains.jpg" alt="#">
+                <span>Mountains</span>
+                <p>Lorem, ipsum dolor.</p>
+            </div>
+
+            <div data-content="nature" class="filter__content_block">
+                <img src="/images/lights.jpg" alt="#">
+                <span>Lights</span>
+                <p>Lorem, ipsum dolor.</p> 
+            </div>
+
+            <div data-content="nature" class="filter__content_block">
+                <img src="/images/nature.jpg" alt="#">
+                <span>Forest</span>
+                <p>Lorem, ipsum dolor.</p>
+            </div>
+
+            <div data-content="cars" class="filter__content_block">
+                <img src="/images/cars1.jpg" alt="#">
+                <span>Retro</span>
+                <p>Lorem, ipsum dolor.</p>
+            </div>
+
+            <div data-content="cars" class="filter__content_block">
+                <img src="/images/cars2.jpg" alt="#">
+                <span>Fast</span>
+                <p>Lorem, ipsum dolor.</p>
+            </div>
+
+            <div data-content="cars" class="filter__content_block">
+                <img src="/images/cars3.jpg" alt="#">
+                <span>Classic</span>
+                <p>Lorem, ipsum dolor.</p>
+            </div>
+
+            <div data-content="people" class="filter__content_block">
+                <img src="/images/people1.jpg" alt="#">
+                <span>Girl</span>
+                <p>Lorem, ipsum dolor.</p>
+            </div>
+
+            <div data-content="people" class="filter__content_block">
+                <img src="/images/people2.jpg" alt="#">
+                <span>Man</span>
+                <p>Lorem, ipsum dolor.</p>
+            </div>
+
+            <div data-content="people" class="filter__content_block">
+                <img src="/images/people3.jpg" alt="#">
+                <span>Woman</span>
+                <p>Lorem, ipsum dolor.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/filter/filter.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
