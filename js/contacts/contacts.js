@@ -5,13 +5,47 @@ class User{
     
     };
 
-    
+    edit(newData = {}){
+        if(Array.isArray(newData) || 
+        typeof newData != 'object'
+        ) return;
+        this.#data = {...this.#data,...newData}
+    }
+
     get(){
         return this.#data
     }
 }
 
-let user1 = new User(
+class Contacts{
+    #data = [];
+    add(contactData = {}){
+        let user = new User(contactData);
+
+        if(!user.get) return;
+        this.#data.push(user)
+    }
+
+    edit(){
+
+    }
+
+    remove(){
+
+    }
+
+    get(){
+        return this.#data;
+    }
+
+}
+
+let contacts = new Contacts(
+
+)
+
+
+/* let user1 = new User(
     {
         id: 1,
         name: 'eyheniy',
@@ -19,4 +53,4 @@ let user1 = new User(
         address: 'Homel, minskaya street',
         phone: '+375447104223'
     }
-);
+); */
