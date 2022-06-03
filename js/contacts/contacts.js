@@ -19,22 +19,53 @@ class User{
 
 class Contacts{
     #data = [];
+    #lastId = 0;
+    
     add(contactData = {}){
+        this.#lastId++;
+
+        contactData.id = this.#lastId;
+
         let user = new User(contactData);
 
         if(!user.get) return;
         this.#data.push(user)
     }
 
-    edit(){
+    edit(id = 0, newData = {}){
+        let user = this.get(id);
 
+        if(!user) return;
+
+        user.edit(newData)
     }
 
-    remove(){
+    remove(id = 0){
+        if(!id) return;
 
+        let dataTmp = this.#data.filter(elem =>{
+            return elem.get().id != id
+        });
+
+        if(!dataTmp || dataTmp.length == 0) return;
+
+        this.#data = dataTmp;
     }
 
-    get(){
+    get(id = 0, showData = false){
+        if(id > 0){
+            let user = this.#data.find(elem =>{
+                return elem.get().id == id; 
+            });
+        
+            if (user) {
+                if(showData) return user.get();
+                return user;
+            } else{
+                return;
+            }
+        }
+
         return this.#data;
     }
 
@@ -43,14 +74,3 @@ class Contacts{
 let contacts = new Contacts(
 
 )
-
-
-/* let user1 = new User(
-    {
-        id: 1,
-        name: 'eyheniy',
-        email: 'evgeniy.barabanov.96@mail.ru',
-        address: 'Homel, minskaya street',
-        phone: '+375447104223'
-    }
-); */
