@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Arial";
+}
+
+.contacts__form{
+    position: relative;
+}
+
+.contacts__form,
+.contact__form_edit{
+    margin: 20px auto 0;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+
+.contacts__form > input,
+.contact__form_edit > input{
+    border: 0;
+    padding: 10px 5px;
+    font-size: 15px;
+    border-radius: 10px;
+    box-shadow: inset -5px -5px 5px rgb(156, 156, 156);
+    border: 1px solid black;
+}
+
+.contacts__form > input:hover,
+.contact__form_edit > input:hover{
+    cursor: pointer;
+}
+
+.contacts__form > input:active,
+.contact__form_edit > input:active{
+    box-shadow: inset 5px 5px 5px rgb(156, 156, 156);
+}
+
+.contacts__list{
+    margin: 40px auto 0;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.user{
+    display: flex;
+    list-style-type: none;
+    opacity: 0.5;
+    border-radius: 10px;
+}
+
+.user:hover{
+    opacity: 1;
+}
+
+.user>li{
+    padding: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    width: 25%;
+    border: 1px solid black;
+}
+
+.user__btn_edit,
+.user__btn_remove{
+    margin-left: 5px;
+    visibility: hidden;
+    cursor: pointer;
+    padding: 0 10px;
+    background-color: rgb(147, 147, 177);
+    font-size: 30px;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.user__btn_edit:active,
+.user__btn_remove:active,
+.user__btn_save:active{
+    color: white;
+}
+
+.user:hover > .user__btn_edit,
+.user:hover > .user__btn_remove{
+    visibility: visible;
+}
+
+.user__btn_save{
+    cursor: pointer;
+    padding: 0 10px;
+    background-color: rgb(147, 147, 177);
+    font-size: 30px;
+    border-radius: 20px;
+    border: 2px solid black;
+}
