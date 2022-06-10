@@ -189,7 +189,7 @@ class ContactsApp extends Contacts{
         });
         
         data = JSON.stringify(data)
-        localStorage.setItem('usersData', data);
+        localStorage.setItem('storage', data);
         
     }
 
@@ -320,7 +320,7 @@ class ContactsApp extends Contacts{
         if(!document.cookie.includes('storageExpiration=true')){
             localStorage.clear();
         }
-        let dataLocal = localStorage.getItem('usersData');
+        let dataLocal = localStorage.getItem('storage');
 
         if(!dataLocal || dataLocal.length == 0) return;
 
