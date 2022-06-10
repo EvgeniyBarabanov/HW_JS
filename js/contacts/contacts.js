@@ -101,7 +101,7 @@ class ContactsApp extends Contacts{
     #inputPhoneElem;
     #contactsListElem;
     #contactsFormElem;
-    #submitFormElem
+    #submitFormElem;
 
     onAdd = () =>{
 
@@ -133,10 +133,12 @@ class ContactsApp extends Contacts{
 
         this.update();
 
+        document.cookie = 'storageExpiration=true; max-age=' + 864000;
+        
     }
 
     update(){
-        const data = this.get(0, true);
+        let data = this.get(0, true);
 
         this.#contactsListElem.innerHTML = "";
 
@@ -161,21 +163,22 @@ class ContactsApp extends Contacts{
             btnRemoveElem.classList.add('user__btn_remove');
             btnRemoveElem.innerHTML = "X";
 
-            if(user.name == undefined || user.name == '') user.name = "-";
-             nameElem.innerHTML = user.name;
+            if(user.name == undefined || user.name == '') user.name = "";
+            nameElem.innerHTML = user.name;
 
-            if(user.email == undefined || user.email == '') user.email = "-";
+            if(user.email == undefined || user.email == '') user.email = "";
             emailElem.innerHTML = user.email;
 
-            if(user.address == undefined || user.email == '') user.address = "-";
+            if(user.address == undefined || user.address == '') user.address = "";
             addressElem.innerHTML = user.address;
 
-            if(user.phone == undefined || user.phone == '') user.phone = "-";
+            if(user.phone == undefined || user.phone == '') user.phone = "";
             phoneElem.innerHTML = user.phone;
 
             ulElem.append(nameElem, emailElem, addressElem, phoneElem, btnEditElem, btnRemoveElem);
             this.#contactsListElem.append(ulElem);
-
+            
+            
             btnEditElem.addEventListener('click', () =>{
                 this.onEdit(user.id);
             });
@@ -183,8 +186,11 @@ class ContactsApp extends Contacts{
             btnRemoveElem.addEventListener('click', () =>{
                 this.onRemove(user.id);
             });
-
-        })
+        });
+        
+        data = JSON.stringify(data)
+        localStorage.setItem('usersData', data);
+        
     }
 
     onEdit(id){
@@ -215,7 +221,7 @@ class ContactsApp extends Contacts{
             
             this.update(); 
             
-          }, true);
+        }, true);
 
         const inputNameElem = DOM.create('input');
         inputNameElem.setAttribute('name', 'name');
@@ -310,7 +316,26 @@ class ContactsApp extends Contacts{
 
     };
     
+    getStorage(){
+        if(!document.cookie.includes('storageExpiration=true')){
+            localStorage.clear();
+        }
+        let dataLocal = localStorage.getItem('usersData');
+
+        if(!dataLocal || dataLocal.length == 0) return;
+
+        dataLocal = JSON.parse(dataLocal);
+
+        if(!dataLocal || dataLocal.length == 0) return;
+
+        dataLocal.forEach(item => {
+            this.add(item);
+        });
+        this.update();
+    }
+    
 }
 
 let contactsApp = new ContactsApp();
-contactsApp.start('app')
+contactsApp.start('app');
+contactsApp.getStorage();
