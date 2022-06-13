@@ -27,8 +27,8 @@ class Contacts{
         .then(response => {
             return response.json()
         })
-        .then(test => {
-            test.forEach(item => {
+        .then(result => {
+            result.forEach(item => {
                 const contactData =  {
                     name: item.name,
                     phone: item.phone,
@@ -128,7 +128,7 @@ class ContactsApp extends Contacts{
         super();
 
         this.getStorage().then(() => this.update())
-        
+
     }
 
     onAdd = () =>{
@@ -166,11 +166,8 @@ class ContactsApp extends Contacts{
 
     update(){
         let data = this.get(0, true);
-        if(this.#contactsListElem != undefined){
-            this.#contactsListElem.innerHTML = "";
-        }else{
-            this.#contactsListElem = DOM.create('div');
-        }
+
+        this.#contactsListElem.innerHTML = "";
 
         data.forEach((user) => {
 
@@ -355,14 +352,14 @@ class ContactsApp extends Contacts{
         }
         let dataLocal = localStorage.getItem('storage');
 
-        if(!dataLocal || dataLocal == '[]'){
+        if(!dataLocal || dataLocal.length == 0){
             dataLocal = await this.getData();
             return;
         }
 
         dataLocal = JSON.parse(dataLocal);
 
-        if(!dataLocal || dataLocal == '[]') return;
+        if(!dataLocal || dataLocal.length == 0) return;
 
         dataLocal.forEach(item => {
             this.add(item);
@@ -374,3 +371,4 @@ class ContactsApp extends Contacts{
 
 let contactsApp = new ContactsApp();
 contactsApp.start('app');
+contactsApp.getStorage();
