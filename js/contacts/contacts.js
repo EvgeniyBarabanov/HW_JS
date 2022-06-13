@@ -21,6 +21,27 @@ class Contacts{
     #data = [];
     #lastId = 0;
     
+    async getData() {
+        
+        let url = await  fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => {
+            return response.json()
+        })
+        .then(test => {
+            test.forEach(item => {
+                const contactData =  {
+                    name: item.name,
+                    phone: item.phone,
+                    email: item.email,
+                    address: item.address.city,
+                }
+                this.add(contactData)
+            })
+           
+        })
+        return url;
+        }
+
     add(contactData = {}){
         this.#lastId++;
 
@@ -103,6 +124,13 @@ class ContactsApp extends Contacts{
     #contactsFormElem;
     #submitFormElem;
 
+    constructor(){
+        super();
+
+        this.getStorage().then(() => this.update())
+        
+    }
+
     onAdd = () =>{
 
         let contactsData = {};
@@ -132,15 +160,17 @@ class ContactsApp extends Contacts{
         this.#inputPhoneElem.value = "";
 
         this.update();
-
-        document.cookie = 'storageExpiration=true; max-age=' + 864000;
+        this.setStorage();
         
     }
 
     update(){
         let data = this.get(0, true);
-
-        this.#contactsListElem.innerHTML = "";
+        if(this.#contactsListElem != undefined){
+            this.#contactsListElem.innerHTML = "";
+        }else{
+            this.#contactsListElem = DOM.create('div');
+        }
 
         data.forEach((user) => {
 
@@ -187,10 +217,13 @@ class ContactsApp extends Contacts{
                 this.onRemove(user.id);
             });
         });
-        
+    }
+
+    setStorage(){
+        let data = this.get(0, true);
         data = JSON.stringify(data)
         localStorage.setItem('storage', data);
-        
+        document.cookie = 'storageExpiration=true; max-age=' + 864000;
     }
 
     onEdit(id){
@@ -220,7 +253,7 @@ class ContactsApp extends Contacts{
             else this.remove(id);
             
             this.update(); 
-            
+            this.setStorage();
         }, true);
 
         const inputNameElem = DOM.create('input');
@@ -264,12 +297,12 @@ class ContactsApp extends Contacts{
 
         userFormEditElem.append(inputNameElem, inputEmailElem, inputAddressElem, inputPhoneElem, btnSaveElem)
         document.body.append(userFormEditElem);
-        
     }
 
     onRemove(id){
         this.remove(id);
         this.update();
+        this.setStorage();
     }
     
 
@@ -316,17 +349,20 @@ class ContactsApp extends Contacts{
 
     };
     
-    getStorage(){
+    async getStorage(){
         if(!document.cookie.includes('storageExpiration=true')){
             localStorage.clear();
         }
         let dataLocal = localStorage.getItem('storage');
 
-        if(!dataLocal || dataLocal.length == 0) return;
+        if(!dataLocal || dataLocal == '[]'){
+            dataLocal = await this.getData();
+            return;
+        }
 
         dataLocal = JSON.parse(dataLocal);
 
-        if(!dataLocal || dataLocal.length == 0) return;
+        if(!dataLocal || dataLocal == '[]') return;
 
         dataLocal.forEach(item => {
             this.add(item);
@@ -338,4 +374,3 @@ class ContactsApp extends Contacts{
 
 let contactsApp = new ContactsApp();
 contactsApp.start('app');
-contactsApp.getStorage();
