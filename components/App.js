@@ -24,8 +24,8 @@ class App{
         localElem = JSON.parse(localElem);
         console.log(localElem);
         localElem.forEach(item => {
-            let productUl = document.createElement('ul');
-            productUl.classList.add('main__prodect');
+            let productUl = document.createElement('div');
+            productUl.classList.add('main__product');
 
             let productUlCategoru = document.createElement('p');
             productUlCategoru.innerHTML = item.category;
@@ -39,7 +39,12 @@ class App{
             let productUlPrice = document.createElement('p');
             productUlPrice.innerHTML = item.price;
 
-            main.append(productUlCategoru, productUlImage/* , productUlDescription */, productUlPrice)
+            let productUlCart = document.createElement('button');
+            productUlCart.classList.add('main__product_productUlCart');
+            productUlCart.innerHTML = "добавить в корзину";
+
+            productUl.append(productUlCategoru, productUlImage, productUlPrice,productUlCart)
+            main.append(productUl)
         });
     }
 
