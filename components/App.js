@@ -20,32 +20,21 @@ class App{
     }
 
     update(){
+        let productUlElem = document.createElement('ul')
         let localElem = localStorage.getItem('storage');
         localElem = JSON.parse(localElem);
-        console.log(localElem);
         localElem.forEach(item => {
-            let productUl = document.createElement('div');
-            productUl.classList.add('main__product');
-
-            let productUlCategoru = document.createElement('p');
-            productUlCategoru.innerHTML = item.category;
-
-            let productUlImage = document.createElement('img');
-            productUlImage.setAttribute('src', item.image);
-
-            let productUlDescription = document.createElement('p');
-            productUlDescription.innerHTML = item.description;
-
-            let productUlPrice = document.createElement('p');
-            productUlPrice.innerHTML = item.price;
-
-            let productUlCart = document.createElement('button');
-            productUlCart.classList.add('main__product_productUlCart');
-            productUlCart.innerHTML = "добавить в корзину";
-
-            productUl.append(productUlCategoru, productUlImage, productUlPrice,productUlCart)
-            main.append(productUl)
+            let liElem = document.createElement('li');
+            liElem.innerHTML = `
+                <a class="main__product" href="#Product/${item.id}">
+                    <p class="main__category">${item.category}</p>
+                    <img class="main__image" src="${item.image}">
+                    <p>${item.description}</p>
+                    <p class="main__price">${item.price}</p>
+                </a>`
+            productUlElem.append(liElem);
         });
+        main.append(productUlElem);
     }
 
     async getData(){

@@ -6,16 +6,16 @@ class Nav{
         this.#element.classList.add('app__navBlock');
         this.#element.innerHTML = `
             <ul>
-                <li>HOME</li>
+                <li><a href='/'>HOME</a></li>
                 <li>CATEGORIES
                     <ul>
-                        <li>Men's clothing</li>
-                        <li>Jewelery</li>
-                        <li>Electronics</li>
-                        <li>women's clothing</li>
+                        <li><a href='/#MensClothing'>Men's clothing</a></li>
+                        <li><a href='/#Jewelery'>Jewelery</a></li>
+                        <li><a href='/#Electronics'>Electronics</a></li>
+                        <li><a href='/#WomensClothing'>Women's clothing</a></li>
                     </ul>
                 </li>
-                <li><button class = 'app__navBlock__btn'><img src = '/components/image/btnBasket.png'></button></li>
+                <li><a href='/#Cart' class='app__navBlock_cart'>CART</a></li>
             </ul>`                  
     };
 
@@ -28,3 +28,4 @@ class Nav{
 
 const nav = new Nav().init();
 export {nav};
+
