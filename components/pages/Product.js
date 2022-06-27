@@ -19,14 +19,16 @@ class Page{
                 <img class="main__image" src = ${productElem.image}>
                 <p class="main__category" >${productElem.description}</p>
                 <p class="main__price">${productElem.price}</p>
-                <button onclick="onAdd" class="main__product_productElemCart">Добавить в корзину</button>
             </div>`;
-
+        let productAdd = document.createElement('button');
+        productAdd.addEventListener('click', this.onAdd)
+        productAdd.classList.add('main__product_productElemCart');
+        this.#element.append(productAdd)
 
     };
 
     onAdd(){
-            console.log('ad');
+        console.log('я работаю');
     }
 
     init(){
