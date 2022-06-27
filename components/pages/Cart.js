@@ -8,6 +8,8 @@ class Page{
         let h2Elem = document.createElement('h2')
         h2Elem.innerHTML = "Cart";
         this.#element.append(h2Elem);
+        console.log(document.cookie);
+
     };
 
     init(){
