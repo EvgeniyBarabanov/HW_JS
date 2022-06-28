@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-/*     outline: 1px solid red; */
+    outline: 1px solid red;
 }
 
 .app{
@@ -12,142 +12,113 @@
 }
 
 .app__headerBlock{
-    background-color: aqua;
-    display: flex;
-    justify-content: space-between;
-    height: 50px;
+    background-color: #020202;
+}
+
+.app ul{
+    list-style-type: none;
 }
 
 .app__navBlock{
-    background-color: yellow;
+    margin-bottom: 60px;
 }
 
-.app__navBlock ul{
+.app__navBlock>ul{
     display: flex;
-    justify-content: flex-start;
-    list-style-type: none;
+    justify-content: space-around;
 }
 
-.app__navBlock>ul li a{
-    display: block;
-    padding: 15px;
-    text-decoration: none;
-    color: black;
+.app__navBlock:hover{
+    box-shadow: inset -10px -5px 10px rgb(211, 211, 211),
+                inset 10px 5px 10px rgb(211, 211, 211);
+    transition: 0.7s;
 }
 
-.app__navBlock>ul>li:nth-child(2){
-    padding: 15px;
+.app__navBlock li:nth-child(2),
+.app__navBlock li:nth-child(3){
     position: relative;
 }
 
-.app__navBlock ul li ul{
-    background-color: aqua;
-    display: none;
-    position: absolute;
-    top: 48.5px;
-    left: 0;
-    width: 100%;
-}
-
-.app__navBlock ul li:nth-child(2):hover ul{
-    display: block;
-}
-
-.app__mainBlock ul{
-    list-style-type: none;
-}
-
-.main__product{
-    text-decoration: none;
-    color: black;
-    text-align: center;
-    display: block;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.main__category{
-    margin-bottom: 10px;
-}
-
-.main__image{
-    width: 80px;
-    margin-bottom: 10px;
-    margin-top: auto;
-}
-
-.main__description{
-    margin-bottom: 10px;
-}
-
-.main__price{
-    margin-top: auto;
-    margin-bottom: 10px;
-    font-size: 30px;
-}
-
-.app__mainBlock{
+.app__navBlock>ul li{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-h2{
-    text-align: center;
-}
-
-.main__product_productElemCart{
-    background-color: green;
-    width: 100%;
-    padding: 10px 0px;
-    border: 0;
-    border-radius: 20px;
+    align-items: center;
     cursor: pointer;
-    font-weight: bold;
+    padding: 0 10px;
+}
+
+.app__navBlock>ul li:hover{
+    box-shadow: inset -10px -5px 10px rgb(211, 211, 211),
+                inset 10px 5px 10px rgb(211, 211, 211);
+    transition: 0.7s;
+}
+
+.app__navBlock li:nth-child(2) ul {
+    position: absolute;
+    top: 80px;
+}
+
+.app__navBlock li:nth-child(2) ul{
+    display: none;
+    color: white;
+}
+
+.app__navBlock li:nth-child(2):hover ul{
+    display: flex;
+    color: black;
+}
+
+.app__navBlock a{
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 20px;
+}
+
+.app__navBlock img{
+    width: 30px;
+}
+
+.app__navBlock_sum{
+    border-radius: 50%;
+    background-color: blueviolet;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    color: white;
+    text-align: center;
     font-size: 15px;
 }
 
-.main__product:hover{
-    box-shadow: inset 2px 2px 10px rgb(125, 125, 125),
-    inset -2px -2px 10px rgb(125, 125, 125);
-    transition: 0.5s;
-}
 
-.main__product:hover .main__product_productElemCart{
-    visibility: visible;
-}
 
-.page{
-    width: 50%;
-}
 
-.page .main__product{
+
+
+
+.app__mainBlock ul{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    justify-content: space-between;
+
 }
 
-.image__block1{
-    width: 30%;
-    min-width: 100px;
+.app__mainBlock li{
+    width: calc(33% - 20px);
+    border-radius: 5px;
+    padding: 10px;
 }
 
-.page .main__image{
-    width: 100%;
+.app__mainBlock li:hover{
+    box-shadow: inset -10px -5px 10px rgb(211, 211, 211),
+                inset 10px 5px 10px rgb(211, 211, 211);
+    transition: 1s;
 }
 
-.image__block2{
-    margin-left: auto;
-    width: 50%;
-    min-width: 250px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: justify;
+.app__mainBlock img{
+    width: 50px;
 }
-
-.hidden{
-    display: none;
+.app__mainBlock{
+    display: block;
 }

@@ -17,7 +17,6 @@ class Page{
                 let liElem = document.createElement('li');
                 liElem.innerHTML = `
                         <a class="main__product" href="#Product/${item.id}">
-                            <p class="main__category">${item.category}</p>
                             <img class="main__image" src="${item.image}">
                             <p>${item.description}</p>
                             <p class="main__price">${item.price}</p>

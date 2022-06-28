@@ -18,32 +18,35 @@ class Page{
                 <p class="main__price">${productElem.price}</p>
             </div>`;
         let productAdd = document.createElement('button');
-        productAdd.innerHTML = "добавить товар в корзину"
+        productAdd.innerHTML = "добавить товар в корзину";
+
+        if(document.cookie.length != 0){
+            if(document.cookie.match((/(\d+)/g)).includes(String(productElem.id))){
+                productAdd.innerHTML = "Добавлено"
+            };
+        };
+
         productAdd.addEventListener('click', function(){
-
-        if(document.cookie != ''){
-            let cookies = document.cookie;
-            console.log(cookies);
-            const cookieReg = new RegExp('id=(.*);?');
-            cookies = cookies.match(cookieReg)[1];
-            cookies += `,${productElem.id}`;
-            document.cookie = `id=${cookies}`
-
-        }else {
-            document.cookie = `id=${productElem.id}`;
-        }
-           
-        })
+            productAdd.innerHTML = "Добавлено";
+            if(document.cookie != ''){
+                let cookies = document.cookie;
+                const cookieReg = new RegExp('id=(.*);?');
+                cookies = cookies.match(cookieReg)[1];
+                if (!cookies.split(',').includes(String(productElem.id))){
+                    cookies += `,${productElem.id}`;
+                    document.cookie = `id=${cookies}`
+                    document.querySelector('.app__navBlock_sum').innerHTML = document.cookie.match(/\d+/g).length
+                }
+            }else {
+                document.cookie = `id=${productElem.id}`;
+                document.querySelector('.app__navBlock_sum').innerHTML = document.cookie.match(/\d+/g).length
+            }
+        });
         productAdd.classList.add('main__product_productElemCart');
-        this.#element.append(productAdd)
-
+        this.#element.append(productAdd);
     };
 
-    /* onAdd(){
-        console.log('я работаю');
-        this.innerHTML = "Добавлено"
-        document.cookie = э
-    } */
+   
 
     init(){
         this.create();

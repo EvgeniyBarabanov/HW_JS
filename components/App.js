@@ -20,7 +20,11 @@ class App{
     }
 
     update(){
-        let productUlElem = document.createElement('ul')
+        let h2Elem = document.createElement('h2')
+        h2Elem.innerHTML = "new products";
+
+        let productUlElem = document.createElement('ul');
+
         let localElem = localStorage.getItem('storage');
         localElem = JSON.parse(localElem);
         localElem.forEach(item => {
@@ -34,7 +38,7 @@ class App{
                 </a>`
             productUlElem.append(liElem);
         });
-        main.append(productUlElem);
+        main.append(h2Elem, productUlElem);
     }
 
     async getData(){

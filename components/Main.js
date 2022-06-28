@@ -21,7 +21,7 @@ class Main{
                     this.#element.append(module.default);
                 })
             }else{
-                import(`./pages/${hash}.js`)
+                import(`./pages/${hash}.js?key=${Date.now()}`)
                 .then(module =>{
                     this.#element.innerHTML = '';
                     this.#element.append(module.default);
