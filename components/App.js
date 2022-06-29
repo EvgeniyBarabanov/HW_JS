@@ -23,6 +23,10 @@ class App{
         let h2Elem = document.createElement('h2')
         h2Elem.innerHTML = "new products";
 
+        if(document.cookie.length > 0){
+            document.querySelector('.app__navBlock_sum').innerHTML = document.cookie.match(/\d+/g).length
+        }
+
         let productUlElem = document.createElement('ul');
 
         let localElem = localStorage.getItem('storage');
@@ -33,7 +37,6 @@ class App{
                 <a class="main__product" href="#Product/${item.id}">
                     <p class="main__category">${item.category}</p>
                     <img class="main__image" src="${item.image}">
-                    <p>${item.description}</p>
                     <p class="main__price">${item.price}</p>
                 </a>`
             productUlElem.append(liElem);

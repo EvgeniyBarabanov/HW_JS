@@ -34,11 +34,11 @@ class Page{
                 cookies = cookies.match(cookieReg)[1];
                 if (!cookies.split(',').includes(String(productElem.id))){
                     cookies += `,${productElem.id}`;
-                    document.cookie = `id=${cookies}`
+                    document.cookie = `id=${cookies}; max-age=` + 20;
                     document.querySelector('.app__navBlock_sum').innerHTML = document.cookie.match(/\d+/g).length
                 }
             }else {
-                document.cookie = `id=${productElem.id}`;
+                document.cookie = `id=${productElem.id}; max-age=` + 20;
                 document.querySelector('.app__navBlock_sum').innerHTML = document.cookie.match(/\d+/g).length
             }
         });

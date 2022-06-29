@@ -100,11 +100,12 @@
 .app__mainBlock ul{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 
 }
 
 .app__mainBlock li{
+    text-align: justify;
     width: calc(33% - 20px);
     border-radius: 5px;
     padding: 10px;
@@ -116,9 +117,35 @@
     transition: 1s;
 }
 
-.app__mainBlock img{
-    width: 50px;
-}
-.app__mainBlock{
+.app__mainBlock a{
     display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.main__category{
+    text-align: center;
+}
+
+.app__mainBlock img{
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+table,
+table th,
+table td{
+    border: 1px solid black;
+}
+
+.plus,
+.minus{
+    border: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    /* background-color: aqua; */
 }
