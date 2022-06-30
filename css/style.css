@@ -1,14 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
 *{
     margin: 0;
     padding: 0;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
+
 
 .app{
     margin: 0 auto;
     max-width: 1280px;
     font-family: Arial;
     font-weight: bold;
+}
+
+h2{
+    font-family: 'Patua One', cursive;
 }
 
 .app__headerBlock{
@@ -20,7 +29,8 @@
 }
 
 .app__navBlock{
-    margin-bottom: 60px;
+    margin-bottom: 80px;
+    font-family: 'Arima', cursive;
 }
 
 .app__navBlock>ul{
@@ -34,6 +44,10 @@
     transition: 0.7s;
 }
 
+.app__navBlock li:nth-child(2){
+    padding: 0 10px;
+}
+
 .app__navBlock li:nth-child(2),
 .app__navBlock li:nth-child(3){
     position: relative;
@@ -43,7 +57,6 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    padding: 0 10px;
 }
 
 .app__navBlock>ul li:hover{
@@ -54,7 +67,7 @@
 
 .app__navBlock li:nth-child(2) ul {
     position: absolute;
-    top: 80px;
+    top: 65px;
 }
 
 .app__navBlock li:nth-child(2) ul{
@@ -71,7 +84,7 @@
     color: black;
     text-decoration: none;
     display: block;
-    padding: 20px;
+    padding: 10px 30px;
 }
 
 .app__navBlock img{
@@ -81,14 +94,16 @@
 .app__navBlock_sum{
     border-radius: 50%;
     background-color: blueviolet;
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     position: absolute;
-    right: 10px;
-    top: 12px;
+    right: 14px;
+    top: 8px;
     color: white;
     text-align: center;
-    font-size: 15px;
+    font-size: 10px;
+    line-height: 17px;
+    z-index: -1;
 }
 
 
@@ -106,9 +121,17 @@
 
 .app__mainBlock li{
     text-align: justify;
-    width: calc(33% - 20px);
+    margin: 30px;
+    width: calc(25% - 120px);
     border-radius: 5px;
     padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.app__mainBlock .page li{
+    width: calc(40% - 80px);
+    margin: 20px;
 }
 
 .app__mainBlock li:hover{
@@ -118,28 +141,102 @@
 }
 
 .app__mainBlock a{
-    display: block;
     text-decoration: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     color: black;
+}
+
+.main__title{
+    margin-bottom: 30px;
+    font-family: 'Philosopher', sans-serif;
 }
 
 .main__category{
     text-align: center;
 }
 
-.app__mainBlock img{
-    width: 100px;
+.main__image{
+    height: 200px;
+    width: 180px;
     display: block;
+    margin: 0 auto 10px auto
+}
+
+.main__description{
+    text-align: justify;
+    margin-bottom: 20px;
+    font-family: 'Kalam', cursive;
+    font-size: 20px;
+}
+
+.main__price{
+    text-align: right;
+    font-size: 35px;
+}
+
+
+.main__product_productElemCart{
+    display: block;
+    border: 0;
+    cursor: pointer;
+    border-radius: 50%;
     margin: 0 auto;
+}
+
+.main__product_productElemCart img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+
+
+.productPage{
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.productPage button{
+    position: absolute;
+    top: 30px;
+    right: 0;
+    border: 3px solid white;
+}
+
+.productPage button:active{
+    top: 32px;
 }
 
 
 
 
-table,
 table th,
 table td{
     border: 1px solid black;
+}
+
+table{
+    margin: 0 auto;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+table td,
+table th{
+    padding: 10px;
+}
+
+table .main__image{
+    width: 50px;
+    height: 50px;
+}
+
+table .main__price{
+    font-size: 20px;
 }
 
 .plus,
@@ -147,5 +244,28 @@ table td{
     border: 0;
     cursor: pointer;
     border-radius: 50%;
-    /* background-color: aqua; */
+}
+
+.plus img,
+.minus img{
+    width: 30px;
+    height: 30px;
+}
+
+.thing{
+    text-align: center;
+    font-size: 20px;
+}
+
+tfoot{
+    text-align: right;
+}
+
+.summPrice{
+    font-size: 25px;
+}
+
+.emptyCart{
+    display: block;
+    margin: 0 auto;
 }

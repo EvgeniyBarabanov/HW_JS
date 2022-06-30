@@ -40,10 +40,3 @@ class Main{
 
 const main = new Main().init();
 export {main};
-
-
-
-/* let testHash = hash.match(/[1-9]+$/);
-            console.log(testHash[0]);
-
-            console.log(/Product\/[1-9]+$/).test(hash); */

@@ -2,7 +2,7 @@ class Page{
     #element;
     create(){
         this.#element = document.createElement('div')
-        this.#element.classList.add('page');
+        this.#element.classList.add('productPage');
 
         let localData = localStorage.getItem('storage');
         localData = JSON.parse(localData);
@@ -12,22 +12,24 @@ class Page{
         let productElem = localData[hash[0]-1];
 
         this.#element.innerHTML = `
-            <div>
-                <img class="main__image" src = ${productElem.image}>
-                <p class="main__category" >${productElem.description}</p>
-                <p class="main__price">${productElem.price}</p>
-            </div>`;
+            <p class="main__title">${productElem.title}</p>
+            <img class="main__image" src = ${productElem.image}>
+            <p class="main__description" >${productElem.description}</p>
+            <p class="main__price">${productElem.price}$</p>
+        `;
+            
         let productAdd = document.createElement('button');
-        productAdd.innerHTML = "добавить товар в корзину";
-
+        let addCartIcon = document.createElement('img');
+        
+        addCartIcon.setAttribute('src','/components/image/addToCart.png');
         if(document.cookie.length != 0){
             if(document.cookie.match((/(\d+)/g)).includes(String(productElem.id))){
-                productAdd.innerHTML = "Добавлено"
+                addCartIcon.setAttribute('src','/components/image/addedToCart.png');
             };
         };
 
         productAdd.addEventListener('click', function(){
-            productAdd.innerHTML = "Добавлено";
+            addCartIcon.setAttribute('src','/components/image/addedToCart.png');
             if(document.cookie != ''){
                 let cookies = document.cookie;
                 const cookieReg = new RegExp('id=(.*);?');
@@ -43,6 +45,7 @@ class Page{
             }
         });
         productAdd.classList.add('main__product_productElemCart');
+        productAdd.append(addCartIcon);
         this.#element.append(productAdd);
     };
 
