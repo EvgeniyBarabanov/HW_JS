@@ -49,8 +49,6 @@ class Page{
         this.#element.append(productAdd);
     };
 
-   
-
     init(){
         this.create();
 

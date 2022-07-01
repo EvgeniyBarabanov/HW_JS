@@ -5,9 +5,7 @@
 *{
     margin: 0;
     padding: 0;
-    /* outline: 1px solid red; */
 }
-
 
 .app{
     margin: 0 auto;
@@ -22,6 +20,7 @@ h2{
 
 .app__headerBlock{
     background-color: #020202;
+    height: 40px;
 }
 
 .app ul{
@@ -106,12 +105,6 @@ h2{
     z-index: -1;
 }
 
-
-
-
-
-
-
 .app__mainBlock ul{
     display: flex;
     flex-wrap: wrap;
@@ -159,10 +152,9 @@ h2{
 }
 
 .main__image{
-    height: 200px;
     width: 180px;
     display: block;
-    margin: 0 auto 10px auto
+    margin: 0 auto 10px auto;
 }
 
 .main__description{
@@ -192,8 +184,6 @@ h2{
     border-radius: 50%;
 }
 
-
-
 .productPage{
     position: relative;
     width: 50%;
@@ -211,8 +201,13 @@ h2{
     top: 32px;
 }
 
+.productPage .main__image{
+    margin-bottom: 60px;
+}
 
-
+.productPage .main__price{
+    margin-bottom: 150px;
+}
 
 table th,
 table td{
@@ -220,7 +215,7 @@ table td{
 }
 
 table{
-    margin: 0 auto;
+    margin: 60px auto 200px auto;
     border: 3px solid black;
     border-radius: 5px;
 }
@@ -268,4 +263,34 @@ tfoot{
 .emptyCart{
     display: block;
     margin: 0 auto;
+}
+
+.app__footerBlock{
+    padding: 10px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+}
+
+.app__footerBlock ul{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.app__footerBlock li{
+    opacity: 0.7;
+}
+
+.app__footerBlock li:hover{
+    opacity: 1;
+}
+
+.app__footerBlock li:not(:last-child){
+    margin-right: 15px;
+}
+
+.app__footerBlock li a{
+    display: flex;   
 }
